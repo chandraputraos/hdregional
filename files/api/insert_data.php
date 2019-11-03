@@ -46,14 +46,15 @@ if(count($info) > 0) {
 	$kebersihan = mysqli_real_escape_string($conn,$info->kebersihan);	
 	$status_rack = mysqli_real_escape_string($conn,$info->status_rack);
 	
-    $remarks = mysqli_real_escape_string($conn,$info->remarks);   
+	$remarks = mysqli_real_escape_string($conn,$info->remarks); 
+	$jira = mysqli_real_escape_string($conn,$info->jira);   
    
     
 $query = "INSERT INTO `hcid_hdreg`(`name`, `office`,`ping`, `download`, `upload`, `status_internet`, `call_internal`, `call_eksternal`, `status_yealink`, `test_print`, `life_toner`, `life_opc`, `status_printer`, `test_print_mcf`, `life_toner_mcf`, `life_drum_mcf`, `life_fuser_mcf`, `status_printer_mcf`, `suhu_ac`, `kondisi_ac`, `status_ac`,
- `load_ups`, `battery_ups`, `status_ups`, `modem`, `core_switch`, `server_lokal`, `kebersihan`, `status_rack`, `remarks`)
+ `load_ups`, `battery_ups`, `status_ups`, `modem`, `core_switch`, `server_lokal`, `kebersihan`, `status_rack`, `remarks`, `jira`)
  VALUES ('$namalengkap','$office', '$ping','$download','$upload','$status_internet','$call_internal' ,'$call_eksternal','$status_yealink','$test_print','$life_toner','$life_opc', '$status_printer'
 	  ,'$test_print_mcf','$life_toner_mcf','$life_drum_mcf','$life_fuser_mcf' , '$status_printer_mcf','$suhu_ac','$kondisi_ac','$status_ac','$load_ups' ,'$battery_ups','$status_ups',
-	  '$modem','$core_switch' ,'$server_lokal','$kebersihan','$status_rack','$remarks')";
+	  '$modem','$core_switch' ,'$server_lokal','$kebersihan','$status_rack','$remarks', '$jira')";
 	  $msg = "Successfully Inserted Your Record";
 	
    if(mysqli_query($conn, $query)) {

@@ -1,6 +1,6 @@
 var app = angular.module('myApps', ['datatables']);
 
-app.controller('hdrApp', function($scope, DTOptionsBuilder, DTColumnBuilder, DTColumnDefBuilder,$location, $http, Data) {
+app.controller('hdrApp', function($scope, DTOptionsBuilder, DTColumnBuilder, DTColumnDefBuilder, $location, $http, Data) {
     $scope.getData;
     $scope.insertData = '';
 
@@ -17,8 +17,8 @@ app.controller('hdrApp', function($scope, DTOptionsBuilder, DTColumnBuilder, DTC
             console.log(response.data, response.status);
         });
     };
-	
-	 $scope.getUser = function() {
+
+    $scope.getUser = function() {
         $http({
             method: 'GET',
             url: 'files/api/user_admin.php'
@@ -67,6 +67,7 @@ app.controller('hdrApp', function($scope, DTOptionsBuilder, DTColumnBuilder, DTC
                 server_lokal: $scope.server_lokal,
                 kebersihan: $scope.kebersihan,
                 status_rack: $scope.status_rack,
+                jira: $scope.jira,
                 remarks: $scope.remarks
             }
 
@@ -98,7 +99,7 @@ app.controller('hdrApp', function($scope, DTOptionsBuilder, DTColumnBuilder, DTC
     }
 
     $scope.getData();
-	$scope.getUser();
+    $scope.getUser();
     $scope.vm = {};
     $scope.vm.dtInstance = {};
     $scope.vm.dtColumnDefs = [DTColumnDefBuilder.newColumnDef(2).notSortable()];
@@ -106,8 +107,8 @@ app.controller('hdrApp', function($scope, DTOptionsBuilder, DTColumnBuilder, DTC
         .withOption('paging', true)
         .withOption('searching', true)
         .withOption('info', true);
-		
-$scope.logout = function() {
+
+    $scope.logout = function() {
         Data.get('logout').then(function(results) {
             Data.toast(results);
             $location.path('login');

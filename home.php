@@ -82,7 +82,7 @@
     <div class="content">
     
         <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Status Device</h3>
@@ -98,11 +98,13 @@
                    
                     <th>Printer</th>
                     
-                    <th>Print MCF</th>
+                    <!-- <th>Print MCF</th> -->
                     <th>AC</th>
                     <th>UPS</th>
                     <th>Rack</th>
                     <th>Kebersihan</th>
+                    <th>Ticket</th>
+                    <th>Remarks</th>
 					<th>Timestamp</th>
                   
                   </tr>
@@ -112,12 +114,15 @@
                     <td><span class="badge" ng-class="{'bg-danger': data.status_internet == 'NOT OK'}">{{data.status_internet}}</span></td>                   
                     <td><span class="badge"  ng-class="{'bg-danger': data.status_yealink == 'NOT OK'}">{{data.status_yealink}}</span></td>
                     <td><span class="badge"  ng-class="{'bg-danger': data.status_printer == 'NOT OK'}">{{data.status_printer}}</span></td>
-                    <td><span class="badge"  ng-class="{'bg-danger': data.status_printer_mcf == 'NOT OK'}">{{data.status_printer_mcf}}</span></td>
+                    <!-- <td><span class="badge"  ng-class="{'bg-danger': data.status_printer_mcf == 'NOT OK'}">{{data.status_printer_mcf}}</span></td> -->
                    
                     <td><span class="badge"  ng-class="{'bg-danger': data.status_ac == 'NOT OK'}">{{data.status_ac}}</span></td>
                     <td><span class="badge"  ng-class="{'bg-danger': data.status_ups == 'NOT OK'}">{{data.status_ups}}</span></td>
                     <td><span class="badge"  ng-class="{'bg-danger': data.status_rack == 'NOT OK'}">{{data.status_rack}}</span></td>
-                    <td><span class="badge"  ng-class="{'bg-danger': data.kebersihan == 'NOT OK'}">{{data.kebersihan}}</span></td>
+                    <td><span class="badge"  ng-class="{'bg-danger': data.kebersihan == 'NOT OK'}">{{data.kebersihan}}</span></td>                    
+                    <td>{{data.jira}}</span></td>
+                    <td>{{data.remarks}}</span></td>
+
 					 <td><span class="badge bg-default" >{{data.tanggal}}</span></td>
                   </tr>
                  
