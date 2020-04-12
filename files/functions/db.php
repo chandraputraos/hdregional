@@ -1,7 +1,7 @@
 <?php
-define('DB_HOST', '10.56.45.133');
+define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
-define('DB_PASS', 'Sampoerna#19');
+define('DB_PASS', '');
 define('DB_NAME', 'hd_reg');
  
  

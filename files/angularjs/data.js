@@ -2,6 +2,7 @@ var app = angular.module('myApps', ['datatables']);
 
 app.controller('hdrApp', function($scope, DTOptionsBuilder, DTColumnBuilder, DTColumnDefBuilder, $location, $http, Data) {
     $scope.getData;
+    $scope.getSummary;
     $scope.insertData = '';
 
 
@@ -12,6 +13,19 @@ app.controller('hdrApp', function($scope, DTOptionsBuilder, DTColumnBuilder, DTC
         }).then(function(response) {
             // success
             $scope.reports = response.data;
+        }, function(response) {
+            // error
+            console.log(response.data, response.status);
+        });
+    };
+
+    $scope.getSummary = function() {
+        $http({
+            method: 'GET',
+            url: 'files/api/summary.php'
+        }).then(function(response) {
+            // success
+            $scope.summary = response.data;
         }, function(response) {
             // error
             console.log(response.data, response.status);
@@ -99,6 +113,7 @@ app.controller('hdrApp', function($scope, DTOptionsBuilder, DTColumnBuilder, DTC
     }
 
     $scope.getData();
+    $scope.getSummary();
     $scope.getUser();
     $scope.vm = {};
     $scope.vm.dtInstance = {};
